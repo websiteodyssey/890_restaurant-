@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Données de réservation générées par le serveur
+server/data/
+
+# Images sources téléchargées (déjà copiées dans client/public/images)
+assets_raw/
+
+# Dossiers de travail / scratch (non nécessaires au site) — ancrés à la racine
+/fruits_raw/
+/tmpimg/
+/vnew/
+/images/
+/oo.html
+/.claude/
