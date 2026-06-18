@@ -26,7 +26,8 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scrollbar-gutter: stable; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+html, body { max-width: 100%; width: 100%; }
 
 body {
   margin: 0;
@@ -36,7 +37,7 @@ body {
   font-size: 1.05rem;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img { display: block; max-width: 100%; }
@@ -1120,7 +1121,8 @@ body {
   .pagehead__cn { display: block; font-size: 0.5em; margin: 0.5rem 0 0; }
   .section__title { font-size: clamp(1.5rem, 6.4vw, 2rem); }
   .cta-band__title { font-size: 1.55rem; }
-  .hero__title { font-size: clamp(2.4rem, 15vw, 3.6rem); }
+  .hero__title { font-size: clamp(1.8rem, 10vw, 2.9rem); letter-spacing: 0.03em; }
+  .hero__content { padding-left: 1.1rem; padding-right: 1.1rem; }
   .pagehead__title, .section__title, .cta-band__title, .hero__title,
   .sig2__name, .carousel__caption h3, .navmenu__links a { overflow-wrap: break-word; }
 
