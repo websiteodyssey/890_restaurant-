@@ -569,7 +569,6 @@ a { color: inherit; text-decoration: none; }
 .galmarquee__row { animation: marqL 60s linear infinite; }
 .galmarquee__row--rev { animation: marqR 74s linear infinite; }
 .galmarquee__row:nth-child(3) { animation-duration: 88s; }
-.galmarquee:hover .galmarquee__row { animation-play-state: paused; }
 .galmarquee__item {
   flex: 0 0 auto; height: clamp(180px, 24vw, 300px); padding: 0; border: none; background: none;
   cursor: pointer; overflow: hidden; border-radius: 8px; position: relative; box-shadow: var(--shadow-sm);
@@ -1118,7 +1117,7 @@ body {
 
   /* Titres : taille réduite + retour à la ligne pour ne rien couper */
   .pagehead__title { font-size: clamp(1.7rem, 7.5vw, 2.3rem); letter-spacing: 0.02em; }
-  .pagehead__cn { font-size: 0.46em; margin-left: 0.3rem; }
+  .pagehead__cn { display: block; font-size: 0.5em; margin: 0.5rem 0 0; }
   .section__title { font-size: clamp(1.5rem, 6.4vw, 2rem); }
   .cta-band__title { font-size: 1.55rem; }
   .hero__title { font-size: clamp(2.4rem, 15vw, 3.6rem); }

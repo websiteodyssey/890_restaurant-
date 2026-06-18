@@ -48,7 +48,7 @@ export default function Galerie() {
           <h2 className="section__title">Le 890 en mouvement</h2>
           <div className="divider"><span>◆</span></div>
           <p className="section__intro">
-            Survolez pour mettre en pause, cliquez sur une photo pour l'agrandir.
+            Cliquez sur une photo pour l'agrandir.
           </p>
         </div>
 
