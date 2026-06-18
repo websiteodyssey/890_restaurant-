@@ -50,30 +50,22 @@ export default function Histoire() {
         </div>
         <div className="values__grid">
           <div className="value-card">
-            <span className="value-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 6 5 9a5 5 0 0 1-10 0c0-1.5.5-2.7 1.6-3.8C9 10 11 7 12 3z"/><path d="M12 14.5a2.2 2.2 0 0 0 2.2-2.2c0-1.1-.9-2.1-2.2-3.6"/></svg>
-            </span>
+            <span className="value-card__num">01</span>
             <h3>Poivre &amp; piment du Sichuan</h3>
             <p>Importés et sélectionnés avec soin pour la véritable saveur mala.</p>
           </div>
           <div className="value-card">
-            <span className="value-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M5 11h14"/><path d="M6.5 11v1.5a5.5 5.5 0 0 0 11 0V11"/><path d="M9.5 8c.6-.7.6-1.5 0-2.2"/><path d="M14.5 8c.6-.7.6-1.5 0-2.2"/></svg>
-            </span>
+            <span className="value-card__num">02</span>
             <h3>Cuisiné à la commande</h3>
             <p>Chaque plat est préparé minute, à partir d'ingrédients frais.</p>
           </div>
           <div className="value-card">
-            <span className="value-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 7C10 5.8 7.6 5.3 5 5.3V17c2.6 0 5 .5 7 1.7 2-1.2 4.4-1.7 7-1.7V5.3c-2.6 0-5 .5-7 1.7z"/><path d="M12 7v11.7"/></svg>
-            </span>
+            <span className="value-card__num">03</span>
             <h3>Recettes traditionnelles</h3>
             <p>Le savoir-faire d'un maître certifié, transmis depuis Chengdu.</p>
           </div>
           <div className="value-card">
-            <span className="value-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3v2"/><path d="M8.5 5.5h7"/><path d="M9.2 5.5C7.8 7 7 9 7 11s.8 4 2.2 5.5h5.6C16.2 15 17 13 17 11s-.8-4-2.2-5.5"/><path d="M8.5 16.5h7"/><path d="M12 16.5v2.5"/><path d="M10.5 21h3"/></svg>
-            </span>
+            <span className="value-card__num">04</span>
             <h3>Une ambiance authentique</h3>
             <p>Une salle chaleureuse aux accents rétro chinois, au cœur du 11ᵉ.</p>
           </div>
