@@ -297,6 +297,22 @@ a { color: inherit; text-decoration: none; }
 .nav--transparent .nav__phone { color: var(--color-gold-light); }
 .nav--transparent .nav__burger span { background: #fff; }
 
+/* Bouton « Commander » (rouge, distinct du doré « Réserver ») */
+.nav--solid .nav__cta--order,
+.nav--transparent .nav__cta--order {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff; border: 1px solid transparent;
+}
+.nav--solid .nav__cta--order:hover,
+.nav--transparent .nav__cta--order:hover { box-shadow: 0 8px 20px -10px var(--color-primary); }
+
+/* Boutons CTA dans le menu mobile (overlay) */
+.navmenu__cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1.6rem 0 0.4rem; }
+.navmenu__cta .btn { flex: 1 1 140px; text-align: center; }
+
+/* Rangée de deux boutons centrés (Commander + Réserver) */
+.center-cta--row { display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; }
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
@@ -1123,6 +1139,9 @@ body {
   .cta-band__title { font-size: 1.55rem; }
   .hero__title { font-size: clamp(1.8rem, 10vw, 2.9rem); letter-spacing: 0.03em; }
   .hero__content { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .hero__actions { flex-direction: column; align-items: center; }
+  .hero__actions .btn { width: 100%; max-width: 300px; }
+  .center-cta--row .btn { flex: 1 1 160px; }
   .pagehead__title, .section__title, .cta-band__title, .hero__title,
   .sig2__name, .carousel__caption h3, .navmenu__links a { overflow-wrap: break-word; }
 

@@ -50,6 +50,9 @@ export default function Navbar() {
           </Link>
 
           <div className="nav__right">
+            <a className="nav__cta nav__cta--order" href={INFO.orderUrl}>
+              Commander
+            </a>
             <Link className="nav__cta" to="/reservation">
               Réserver
             </Link>
@@ -86,6 +89,15 @@ export default function Navbar() {
               </NavLink>
             ))}
           </nav>
+
+          <div className="navmenu__cta">
+            <a className="btn btn--gold btn--shine" href={INFO.orderUrl}>
+              Commander
+            </a>
+            <Link className="btn btn--outline" to="/reservation">
+              Réserver une table
+            </Link>
+          </div>
 
           <div className="navmenu__info">
             <a href={INFO.mapsUrl} target="_blank" rel="noreferrer">

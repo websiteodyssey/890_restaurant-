@@ -97,9 +97,9 @@ export default function Home() {
             du Sichuan, cuisinés à la commande par un maître de Chengdu. Paris 11ᵉ.
           </p>
           <div className="hero__actions hero__anim" style={{ ["--d" as string]: "0.9s" }}>
-            <Link className="btn btn--gold btn--shine" to="/carte">
-              Voir la carte
-            </Link>
+            <a className="btn btn--gold btn--shine" href={INFO.orderUrl}>
+              Commander
+            </a>
             <Link className="btn btn--ghost-light btn--shine" to="/reservation">
               Réserver une table
             </Link>

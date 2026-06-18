@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
 import { MENU } from "../data/menu";
+import { INFO } from "../data/info";
 import { Spice, Veg } from "../components/MenuMarks";
 
 export default function Carte() {
@@ -164,7 +165,10 @@ export default function Carte() {
           <span className="legend-mark"><Veg /> végétarien</span>
         </p>
 
-        <div className="center-cta">
+        <div className="center-cta center-cta--row">
+          <a className="btn btn--gold btn--shine" href={INFO.orderUrl}>
+            Commander
+          </a>
           <Link className="btn btn--red" to="/reservation">
             Réserver une table
           </Link>
