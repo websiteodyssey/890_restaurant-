@@ -100,9 +100,9 @@ export default function Home() {
             <a className="btn btn--gold btn--shine" href={INFO.orderUrl}>
               Commander
             </a>
-            <Link className="btn btn--ghost-light btn--shine" to="/reservation">
+            <a className="btn btn--ghost-light btn--shine" href={INFO.reserveUrl}>
               Réserver une table
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -287,9 +287,9 @@ export default function Home() {
             </p>
           </div>
           <div className="cta-band__actions">
-            <Link className="btn btn--gold btn--shine" to="/reservation">
+            <a className="btn btn--gold btn--shine" href={INFO.reserveUrl}>
               Réserver en ligne
-            </Link>
+            </a>
             <a className="btn btn--ghost-light" href={INFO.phoneHref}>
               {INFO.phone}
             </a>

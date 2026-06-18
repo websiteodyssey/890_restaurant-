@@ -7,7 +7,6 @@ const LINKS = [
   { to: "/histoire", label: "L'histoire" },
   { to: "/carte", label: "La carte" },
   { to: "/galerie", label: "Galerie" },
-  { to: "/reservation", label: "Réserver une table" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -53,9 +52,9 @@ export default function Navbar() {
             <a className="nav__cta nav__cta--order" href={INFO.orderUrl}>
               Commander
             </a>
-            <Link className="nav__cta" to="/reservation">
+            <a className="nav__cta" href={INFO.reserveUrl}>
               Réserver
-            </Link>
+            </a>
             <button
               className={`nav__menu-btn ${open ? "is-open" : ""}`}
               onClick={() => setOpen((v) => !v)}
@@ -94,9 +93,9 @@ export default function Navbar() {
             <a className="btn btn--gold btn--shine" href={INFO.orderUrl}>
               Commander
             </a>
-            <Link className="btn btn--outline" to="/reservation">
+            <a className="btn btn--outline" href={INFO.reserveUrl}>
               Réserver une table
-            </Link>
+            </a>
           </div>
 
           <div className="navmenu__info">

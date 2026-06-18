@@ -10,7 +10,6 @@ const SELECTOR = [
   ".menu__panel",
   ".gallery__item",
   ".cta-band__inner",
-  ".reservation__grid",
   ".contact2__panel",
   ".contact2__map",
   ".story__grid",

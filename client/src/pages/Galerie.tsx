@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
+import { INFO } from "../data/info";
 
 type Shot = { src: string; alt: string; tall?: boolean };
 
@@ -77,9 +77,9 @@ export default function Galerie() {
         </div>
 
         <div className="center-cta">
-          <Link className="btn btn--gold btn--shine" to="/reservation">
+          <a className="btn btn--gold btn--shine" href={INFO.reserveUrl}>
             Réserver une table
-          </Link>
+          </a>
         </div>
       </section>
 

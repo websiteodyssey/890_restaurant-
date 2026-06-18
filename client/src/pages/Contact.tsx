@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
 import { INFO } from "../data/info";
 
@@ -91,9 +90,9 @@ export default function Contact() {
             </ul>
 
             <div className="contact2__actions">
-              <Link className="btn btn--gold btn--shine" to="/reservation">
+              <a className="btn btn--gold btn--shine" href={INFO.reserveUrl}>
                 Réserver une table
-              </Link>
+              </a>
               <a className="btn btn--outline" href={INFO.mapsUrl} target="_blank" rel="noreferrer">
                 Itinéraire
               </a>

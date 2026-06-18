@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
 import { MENU } from "../data/menu";
 import { INFO } from "../data/info";
@@ -169,9 +168,9 @@ export default function Carte() {
           <a className="btn btn--gold btn--shine" href={INFO.orderUrl}>
             Commander
           </a>
-          <Link className="btn btn--red" to="/reservation">
+          <a className="btn btn--red" href={INFO.reserveUrl}>
             Réserver une table
-          </Link>
+          </a>
         </div>
       </section>
     </>

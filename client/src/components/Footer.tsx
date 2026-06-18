@@ -18,7 +18,8 @@ export default function Footer() {
           <Link to="/histoire">L'histoire</Link>
           <Link to="/carte">La carte</Link>
           <Link to="/galerie">Galerie</Link>
-          <Link to="/reservation">Réserver</Link>
+          <a href={INFO.reserveUrl}>Réserver</a>
+          <a href={INFO.orderUrl}>Commander</a>
         </div>
 
         <div className="footer__col">
