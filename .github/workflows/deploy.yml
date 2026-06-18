@@ -6,20 +6,15 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: pages-deploy
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: client
     steps:
       - uses: actions/checkout@v4
 
@@ -31,34 +26,22 @@ jobs:
 
       - name: Install
         run: npm ci
+        working-directory: client
 
       - name: Build (sous-chemin du dépôt)
         run: npx vite build --base=/890_restaurant-/
+        working-directory: client
 
-      - name: Corriger les chemins d'images/vidéos pour le sous-chemin
-        run: |
-          find dist/assets -type f -name '*.js' -print0 \
-            | xargs -0 sed -i 's#"/images/#"/890_restaurant-/images/#g; s#"/video/#"/890_restaurant-/video/#g'
+      - name: Corriger les chemins d'images/vidéos
+        run: find dist/assets -name '*.js' -exec sed -i 's#"/images/#"/890_restaurant-/images/#g; s#"/video/#"/890_restaurant-/video/#g' {} +
+        working-directory: client
 
-      - name: Fallback SPA (routes directes) + .nojekyll
-        run: |
-          cp dist/index.html dist/404.html
-          touch dist/.nojekyll
+      - name: Fallback SPA + .nojekyll
+        run: cp dist/index.html dist/404.html && touch dist/.nojekyll
+        working-directory: client
 
-      - uses: actions/configure-pages@v5
+      - name: Publier sur gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          enablement: true
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: client/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./client/dist
