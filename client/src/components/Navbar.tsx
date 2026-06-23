@@ -1,20 +1,24 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { INFO } from "../data/info";
-
-const LINKS = [
-  { to: "/", label: "Accueil", end: true },
-  { to: "/histoire", label: "L'histoire" },
-  { to: "/carte", label: "La carte" },
-  { to: "/galerie", label: "Galerie" },
-  { to: "/contact", label: "Contact" },
-];
+import { useLang, useT } from "../i18n/lang";
+import { LANGS } from "../i18n/ui";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   const transparentTop = pathname === "/";
+  const t = useT();
+  const { lang, setLang } = useLang();
+
+  const LINKS = [
+    { to: "/", label: t.nav.accueil, end: true },
+    { to: "/histoire", label: t.nav.histoire },
+    { to: "/carte", label: t.nav.carte },
+    { to: "/galerie", label: t.nav.galerie },
+    { to: "/contact", label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -37,6 +41,21 @@ export default function Navbar() {
 
   const solid = scrolled || !transparentTop;
 
+  const LangSwitch = ({ className }: { className?: string }) => (
+    <div className={`lang-switch ${className ?? ""}`} role="group" aria-label="Language">
+      {LANGS.map((l) => (
+        <button
+          key={l.code}
+          className={`lang-switch__btn ${lang === l.code ? "is-active" : ""}`}
+          onClick={() => setLang(l.code)}
+          aria-pressed={lang === l.code}
+        >
+          {l.label}
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <>
       <header
@@ -52,19 +71,20 @@ export default function Navbar() {
           </Link>
 
           <div className="nav__right">
+            <LangSwitch className="lang-switch--nav" />
             <a className="nav__cta nav__cta--order" href={INFO.orderUrl}>
-              Commander
+              {t.cta.order}
             </a>
             <a className="nav__cta" href={INFO.reserveUrl}>
-              Réserver
+              {t.cta.reserve}
             </a>
             <button
               className={`nav__menu-btn ${open ? "is-open" : ""}`}
               onClick={() => setOpen((v) => !v)}
-              aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-label={open ? t.nav.fermer : t.nav.menu}
               aria-expanded={open}
             >
-              <span className="nav__menu-label">{open ? "Fermer" : "Menu"}</span>
+              <span className="nav__menu-label">{open ? t.nav.fermer : t.nav.menu}</span>
               <span className="nav__menu-icon">
                 <i />
                 <i />
@@ -95,12 +115,14 @@ export default function Navbar() {
 
           <div className="navmenu__cta">
             <a className="btn btn--gold btn--shine" href={INFO.orderUrl}>
-              Commander
+              {t.cta.order}
             </a>
             <a className="btn btn--outline" href={INFO.reserveUrl}>
-              Réserver
+              {t.cta.reserve}
             </a>
           </div>
+
+          <LangSwitch className="lang-switch--menu" />
 
           <div className="navmenu__info">
             <a href={INFO.mapsUrl} target="_blank" rel="noreferrer">

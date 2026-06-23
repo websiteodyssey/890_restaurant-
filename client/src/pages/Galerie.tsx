@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PageHeader from "../components/PageHeader";
 import { INFO } from "../data/info";
+import { useT } from "../i18n/lang";
 
 type Shot = { src: string; alt: string };
 
@@ -33,24 +34,25 @@ const SUP_FRONT: Shot = { src: "/images/gal-16.jpg", alt: "Plat signature à l'h
 
 export default function Galerie() {
   const [active, setActive] = useState<Shot | null>(null);
+  const t = useT();
 
   return (
     <>
       <PageHeader
-        eyebrow="Galerie"
-        title="En images"
-        cn="相册"
-        intro="L'ambiance, les saveurs et l'esprit du 890 — entre tradition sichuanaise et décor rétro chinois."
+        eyebrow={t.galerie.eyebrow}
+        title={t.galerie.title}
+        cn={t.galerie.cn}
+        intro={t.galerie.intro}
         image="/images/ambiance-2.jpg"
       />
 
       {/* Galerie sur fond sombre : superposition + carrousel auto (style éditorial) */}
       <section className="galcar-section">
         <div className="galcar-section__head">
-          <p className="galcar__eyebrow">Notre univers en images</p>
-          <h2 className="galcar__title">Le 890 en images</h2>
+          <p className="galcar__eyebrow">{t.galerie.sectionEyebrow}</p>
+          <h2 className="galcar__title">{t.galerie.sectionTitle}</h2>
           <div className="galcar__divider"><span>◆</span></div>
-          <p className="galcar__intro">Survolez pour mettre en pause — cliquez sur une photo pour l'agrandir.</p>
+          <p className="galcar__intro">{t.galerie.sectionIntro}</p>
         </div>
 
         {/* Bloc en superposition */}
@@ -82,7 +84,7 @@ export default function Galerie() {
 
         <div className="center-cta">
           <a className="btn btn--gold btn--shine" href={INFO.reserveUrl}>
-            Réserver une table
+            {t.cta.reserveTable}
           </a>
         </div>
       </section>

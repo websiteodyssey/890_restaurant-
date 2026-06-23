@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import { INFO, COPYRIGHT } from "../data/info";
+import { INFO } from "../data/info";
+import { useT } from "../i18n/lang";
 
 export default function Footer() {
+  const t = useT();
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -9,23 +11,23 @@ export default function Footer() {
           <img className="footer__logo" src={INFO.logo} alt="Logo 890 Restaurant" />
           <span className="footer__num">890</span>
           <span className="footer__cn">扒玖零</span>
-          <p>{INFO.cuisine}</p>
+          <p>{t.info.cuisine}</p>
           <p className="footer__addr">{INFO.address}</p>
         </div>
 
         <div className="footer__col">
-          <h4>Le restaurant</h4>
-          <Link to="/histoire">L'histoire</Link>
-          <Link to="/carte">La carte</Link>
-          <Link to="/galerie">Galerie</Link>
-          <a href={INFO.reserveUrl}>Réserver</a>
-          <a href={INFO.orderUrl}>Commander</a>
+          <h4>{t.footer.restaurant}</h4>
+          <Link to="/histoire">{t.nav.histoire}</Link>
+          <Link to="/carte">{t.nav.carte}</Link>
+          <Link to="/galerie">{t.nav.galerie}</Link>
+          <a href={INFO.reserveUrl}>{t.footer.reserve}</a>
+          <a href={INFO.orderUrl}>{t.footer.order}</a>
         </div>
 
         <div className="footer__col">
-          <h4>Contact</h4>
+          <h4>{t.footer.contact}</h4>
           <a href={INFO.mapsUrl} target="_blank" rel="noreferrer">
-            Plan d'accès
+            {t.footer.plan}
           </a>
           <a href={INFO.phoneHref}>{INFO.phone}</a>
           <a href={INFO.instagram} target="_blank" rel="noreferrer">
@@ -37,7 +39,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__col">
-          <h4>Livraison</h4>
+          <h4>{t.footer.delivery}</h4>
           <a href={INFO.ubereats} target="_blank" rel="noreferrer">
             Uber Eats
           </a>
@@ -48,8 +50,8 @@ export default function Footer() {
       </div>
 
       <div className="footer__bottom">
-        <span>{COPYRIGHT}</span>
-        <span>Ouvert tous les jours sauf le jeudi · 12h–14h30 · 18h30–22h30</span>
+        <span>{t.footer.copyright}</span>
+        <span>{t.footer.hoursLine}</span>
       </div>
     </footer>
   );

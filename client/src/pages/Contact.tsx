@@ -1,5 +1,6 @@
 import PageHeader from "../components/PageHeader";
 import { INFO } from "../data/info";
+import { useT } from "../i18n/lang";
 
 const ICONS: Record<string, JSX.Element> = {
   pin: (
@@ -27,13 +28,14 @@ function Ic({ name }: { name: keyof typeof ICONS }) {
 }
 
 export default function Contact() {
+  const t = useT();
   return (
     <>
       <PageHeader
-        eyebrow="Nous trouver"
-        title="Nous rendre visite"
-        cn="联系我们"
-        intro="Au cœur du 11ᵉ, à deux pas du métro Alexandre Dumas."
+        eyebrow={t.contact.eyebrow}
+        title={t.contact.title}
+        cn={t.contact.cn}
+        intro={t.contact.intro}
         image="/images/devanture-nuit.jpg"
       />
 
@@ -44,7 +46,7 @@ export default function Contact() {
               <li>
                 <Ic name="pin" />
                 <div>
-                  <h4>Adresse</h4>
+                  <h4>{t.contact.address}</h4>
                   <a href={INFO.mapsUrl} target="_blank" rel="noreferrer">
                     40 Rue Alexandre Dumas<br />75011 Paris
                   </a>
@@ -53,24 +55,24 @@ export default function Contact() {
               <li>
                 <Ic name="phone" />
                 <div>
-                  <h4>Téléphone</h4>
+                  <h4>{t.contact.phone}</h4>
                   <a href={INFO.phoneHref}>{INFO.phone}</a>
                 </div>
               </li>
               <li>
                 <Ic name="clock" />
                 <div>
-                  <h4>Horaires</h4>
+                  <h4>{t.contact.hours}</h4>
                   <p>
-                    Tous les jours sauf jeudi<br />
-                    12h–14h30 · 18h30–22h30
+                    {t.contact.hoursText}<br />
+                    {t.home.hoursValue}
                   </p>
                 </div>
               </li>
               <li>
                 <Ic name="insta" />
                 <div>
-                  <h4>Suivez-nous</h4>
+                  <h4>{t.contact.follow}</h4>
                   <p className="contact2__social">
                     <a href={INFO.instagram} target="_blank" rel="noreferrer">
                       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -91,15 +93,15 @@ export default function Contact() {
 
             <div className="contact2__actions">
               <a className="btn btn--gold btn--shine" href={INFO.reserveUrl}>
-                Réserver une table
+                {t.cta.reserveTable}
               </a>
               <a className="btn btn--outline" href={INFO.mapsUrl} target="_blank" rel="noreferrer">
-                Itinéraire
+                {t.contact.route}
               </a>
             </div>
 
             <div className="contact2__delivery">
-              <span>Livraison</span>
+              <span>{t.contact.delivery}</span>
               <a href={INFO.ubereats} target="_blank" rel="noreferrer" aria-label="Uber Eats">
                 <img src="/images/ubereats.png" alt="Uber Eats" />
               </a>
