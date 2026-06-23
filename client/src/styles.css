@@ -1089,19 +1089,25 @@ a { color: inherit; text-decoration: none; }
 .intro__media:hover img, .story__media:hover img { transform: scale(1.05); }
 
 /* Accueil : deux photos portrait qui se chevauchent (style éditorial) */
-.intro__media.intro__media--duo { overflow: visible; padding: 0 7% 14% 0; }
+.intro__media.intro__media--duo { overflow: visible; padding: 0 7% 24% 0; }
 .intro__media--duo .intro__duo-back {
   display: block; width: 72%; aspect-ratio: 3 / 4; max-height: none;
   object-fit: cover; border-radius: 8px; box-shadow: var(--shadow-xl);
+  animation: introFloatA 7s ease-in-out infinite;
 }
 .intro__media--duo .intro__duo-front {
   position: absolute; right: 0; bottom: 0; width: 52%; aspect-ratio: 3 / 4; max-height: none;
   object-fit: cover; border-radius: 8px; z-index: 2;
   box-shadow: var(--shadow-xl); outline: 6px solid var(--color-cream);
+  animation: introFloatB 5.6s ease-in-out infinite;
 }
-.intro__media--duo .intro__chinese { bottom: 16%; left: -12px; }
-.intro__media--duo:hover .intro__duo-back,
-.intro__media--duo:hover .intro__duo-front { transform: none; } /* pas de zoom (2 images) */
+/* Léger flottement indépendant des deux images (amplitudes/durées différentes) */
+@keyframes introFloatA { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes introFloatB { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@media (prefers-reduced-motion: reduce) {
+  .intro__media--duo .intro__duo-back,
+  .intro__media--duo .intro__duo-front { animation: none; }
+}
 .dish__thumb { transition: transform 0.4s ease; }
 .dish:hover .dish__thumb { transform: scale(1.06); }
 .value-card:hover .value-card__icon { transform: scale(1.18) rotate(-6deg); transition: transform 0.3s; }
