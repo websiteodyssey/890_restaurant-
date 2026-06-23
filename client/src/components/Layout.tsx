@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -26,7 +26,9 @@ function ScrollProgress() {
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
-  useEffect(() => {
+  // useLayoutEffect : on repositionne le scroll AVANT le paint pour éviter de
+  // voir brièvement la nouvelle page à l'ancienne position de défilement.
+  useLayoutEffect(() => {
     // Si un ancrage est présent, on le laisse défiler vers la section.
     if (hash) {
       const el = document.querySelector(hash);

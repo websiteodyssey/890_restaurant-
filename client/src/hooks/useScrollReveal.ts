@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 // Éléments révélés en fondu-montant à l'entrée dans le viewport.
 const SELECTOR = [
@@ -25,7 +25,9 @@ const SELECTOR = [
  * entrent dans la fenêtre. Léger décalage (stagger) pour les groupes.
  */
 export function useScrollReveal(trigger: unknown) {
-  useEffect(() => {
+  // useLayoutEffect : la classe `reveal` (opacity 0) est posée AVANT le paint,
+  // sinon la nouvelle page s'affiche en entier puis « clignote » à l'animation.
+  useLayoutEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const els = Array.from(document.querySelectorAll<HTMLElement>(SELECTOR));
