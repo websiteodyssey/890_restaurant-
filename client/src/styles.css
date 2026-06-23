@@ -712,10 +712,17 @@ a { color: inherit; text-decoration: none; }
 
 .galcar-section .center-cta { padding: clamp(1.4rem, 4vw, 2.2rem) 1.25rem 0; }
 @media (max-width: 640px) {
-  .galcar { --gal-dur: 44s; }
-  .galcar__card { width: 64vw; }
-  /* On coupe les anims à translation/scale du bloc superposition sur mobile :
-     elles débordaient en sous-pixel (page qui bouge / bande blanche à droite). */
+  /* Sur mobile : AUCUN mouvement automatique. Le carrousel ne défile plus tout
+     seul (ce qui faisait « bouger » la page / vibrer) — on le fait défiler au
+     doigt (scroll natif + accroche). */
+  .galcar {
+    overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .galcar__track { animation: none; }
+  .galcar__card { width: 64vw; scroll-snap-align: center; }
+  /* Idem : on coupe les anims (translation/scale) du bloc superposition. */
   .galsup__back img,
   .galsup__front,
   .galsup__front img,
@@ -1208,7 +1215,10 @@ body {
 }
 @keyframes softBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 
-.signatures-dark, .cta-band, .pagehead, .footer { overflow: hidden; }
+/* contain: paint en plus de overflow:hidden : empêche les halos flous animés
+   (translate + scale, près du bord droit) de fuir et de faire osciller la
+   largeur de la page (le bord droit / hamburger « flottait » tout seul). */
+.hero, .signatures-dark, .cta-band, .pagehead, .footer { overflow: hidden; contain: paint; }
 .footer__inner, .footer__bottom { position: relative; z-index: 1; }
 
 /* Halos dorés / rouges qui flottent dans les sections sombres */
