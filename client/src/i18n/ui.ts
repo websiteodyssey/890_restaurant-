@@ -3,10 +3,10 @@
 
 export type Lang = "fr" | "en" | "zh";
 
-export const LANGS: { code: Lang; label: string }[] = [
-  { code: "fr", label: "FR" },
-  { code: "en", label: "EN" },
-  { code: "zh", label: "中" },
+export const LANGS: { code: Lang; label: string; full: string }[] = [
+  { code: "fr", label: "FR", full: "Français" },
+  { code: "en", label: "EN", full: "English" },
+  { code: "zh", label: "中", full: "中文" },
 ];
 
 type Strings = {
@@ -99,6 +99,11 @@ export const UI: Record<Lang, Strings> = {
       { title: "Une table à partager", desc: "L'esprit convivial et généreux des tables du Sichuan." },
       { title: "Un intérieur chaleureux", desc: "Lampes douces, brique et bois — l'atmosphère conviviale du 890." },
       { title: "Une salle aux accents rétro", desc: "Le décor chaleureux, entre fresque et brique, des années 80-90." },
+      { title: "Poisson à la choucroute", desc: "Bouillon épicé, chou fermenté et poisson frais — un classique du Sichuan." },
+      { title: "Poulet aux cacahuètes", desc: "Croquant, parfumé et légèrement piquant — le Gong Bao Ji Ding." },
+      { title: "Poisson mala", desc: "Bouillon rouge, piments et poivre du Sichuan — l'âme épicée du 890." },
+      { title: "Le wok en flammes", desc: "Cuisson à la minute, saveurs wok-hei — l'esprit du feu sichuanais." },
+      { title: "Une tablée généreuse", desc: "Plats à partager, convivialité et générosité — l'esprit des tables du 890." },
     ],
     footer: { restaurant: "Le restaurant", contact: "Contact", delivery: "Livraison", plan: "Plan d'accès", reserve: "Réserver", order: "Commander", copyright: "© 2024 890 Restaurant · Cuisine sichuanaise · Paris 11e", hoursLine: "Ouvert tous les jours sauf le jeudi · 12h–14h30 · 18h30–22h30" },
     notFound: { title: "Page introuvable", intro: "Cette page n'existe pas — mais une bonne table vous attend.", back: "Retour à l'accueil" },
@@ -156,6 +161,11 @@ export const UI: Record<Lang, Strings> = {
       { title: "A table to share", desc: "The warm, generous spirit of Sichuan dining." },
       { title: "A cosy interior", desc: "Soft lights, brick and wood — the friendly atmosphere of 890." },
       { title: "A retro-styled dining room", desc: "Warm decor, between mural and brick, of the 80s and 90s." },
+      { title: "Fish with pickled cabbage", desc: "Spicy broth, fermented cabbage and fresh fish — a Sichuan classic." },
+      { title: "Kung pao chicken", desc: "Crispy, fragrant and lightly spicy — Gong Bao Ji Ding." },
+      { title: "Mala fish", desc: "Red broth, chillies and Sichuan pepper — the spicy soul of 890." },
+      { title: "Wok on the flames", desc: "Cooked to order, wok-hei flavours — the spirit of Sichuan fire." },
+      { title: "A generous feast", desc: "Dishes to share, warmth and generosity — the spirit of dining at 890." },
     ],
     footer: { restaurant: "The restaurant", contact: "Contact", delivery: "Delivery", plan: "Directions", reserve: "Book", order: "Order", copyright: "© 2024 890 Restaurant · Sichuan cuisine · Paris 11", hoursLine: "Open every day except Thursday · 12pm–2:30pm · 6:30pm–10:30pm" },
     notFound: { title: "Page not found", intro: "This page doesn't exist — but a great table awaits you.", back: "Back to home" },
@@ -213,6 +223,11 @@ export const UI: Record<Lang, Strings> = {
       { title: "共享的餐桌", desc: "四川餐桌热闹而慷慨的精神。" },
       { title: "温馨的内饰", desc: "柔和灯光、砖墙与木质 —— 890 的亲切氛围。" },
       { title: "复古风格的餐厅", desc: "温馨装潢，壁画与砖墙之间，重现八九十年代。" },
+      { title: "酸菜鱼", desc: "麻辣汤底、酸菜与鲜鱼 —— 川菜经典。" },
+      { title: "宫保鸡丁", desc: "酥脆喷香，微辣经典。" },
+      { title: "水煮鱼", desc: "红油、辣椒与花椒 —— 890 的麻辣之魂。" },
+      { title: "火焰炒锅", desc: "现炒现做，镬气十足 —— 川式火功。" },
+      { title: "丰盛的餐桌", desc: "适合分享的菜品，热闹而慷慨 —— 890 的餐桌精神。" },
     ],
     footer: { restaurant: "餐厅", contact: "联系", delivery: "外送", plan: "到达方式", reserve: "订位", order: "点餐", copyright: "© 2024 890 Restaurant · 川菜 · 巴黎十一区", hoursLine: "每天营业，周四除外 · 12:00–14:30 · 18:30–22:30" },
     notFound: { title: "页面未找到", intro: "此页面不存在 —— 但一桌好菜正等着您。", back: "返回首页" },

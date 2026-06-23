@@ -7,10 +7,23 @@ import { LANGS } from "../i18n/ui";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const { pathname } = useLocation();
   const transparentTop = pathname === "/";
   const t = useT();
   const { lang, setLang } = useLang();
+  const current = LANGS.find((l) => l.code === lang) ?? LANGS[0];
+
+  // Ferme le menu de langue au clic extérieur / changement de page
+  useEffect(() => {
+    if (!langOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest(".lang-dd")) setLangOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [langOpen]);
+  useEffect(() => setLangOpen(false), [pathname]);
 
   const LINKS = [
     { to: "/", label: t.nav.accueil, end: true },
@@ -41,21 +54,6 @@ export default function Navbar() {
 
   const solid = scrolled || !transparentTop;
 
-  const LangSwitch = ({ className }: { className?: string }) => (
-    <div className={`lang-switch ${className ?? ""}`} role="group" aria-label="Language">
-      {LANGS.map((l) => (
-        <button
-          key={l.code}
-          className={`lang-switch__btn ${lang === l.code ? "is-active" : ""}`}
-          onClick={() => setLang(l.code)}
-          aria-pressed={lang === l.code}
-        >
-          {l.label}
-        </button>
-      ))}
-    </div>
-  );
-
   return (
     <>
       <header
@@ -71,7 +69,39 @@ export default function Navbar() {
           </Link>
 
           <div className="nav__right">
-            <LangSwitch className="lang-switch--nav" />
+            <div className="lang-dd">
+              <button
+                className="lang-dd__toggle"
+                onClick={() => setLangOpen((v) => !v)}
+                aria-haspopup="listbox"
+                aria-expanded={langOpen}
+                aria-label="Language / Langue / 语言"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="lang-dd__globe">
+                  <path fill="none" stroke="currentColor" strokeWidth="1.6" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 0c2.5 2.2 3.8 5.5 3.8 9s-1.3 6.8-3.8 9c-2.5-2.2-3.8-5.5-3.8-9s1.3-6.8 3.8-9zM3.5 9h17M3.5 15h17" />
+                </svg>
+                <span className="lang-dd__label">{current.label}</span>
+                <span className={`lang-dd__caret ${langOpen ? "is-open" : ""}`} aria-hidden="true">▾</span>
+              </button>
+              {langOpen ? (
+                <ul className="lang-dd__menu" role="listbox">
+                  {LANGS.map((l) => (
+                    <li key={l.code} role="option" aria-selected={lang === l.code}>
+                      <button
+                        className={`lang-dd__item ${lang === l.code ? "is-active" : ""}`}
+                        onClick={() => {
+                          setLang(l.code);
+                          setLangOpen(false);
+                        }}
+                      >
+                        <span className="lang-dd__item-code">{l.label}</span>
+                        <span className="lang-dd__item-full">{l.full}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
             <a className="nav__cta nav__cta--order" href={INFO.orderUrl}>
               {t.cta.order}
             </a>
@@ -121,8 +151,6 @@ export default function Navbar() {
               {t.cta.reserve}
             </a>
           </div>
-
-          <LangSwitch className="lang-switch--menu" />
 
           <div className="navmenu__info">
             <a href={INFO.mapsUrl} target="_blank" rel="noreferrer">

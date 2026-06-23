@@ -5,6 +5,7 @@ export type Slide = {
   title: string;
   cn?: string;
   desc?: string;
+  focus?: string;
 };
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -14,7 +15,6 @@ export default function Carousel({ slides }: { slides: Slide[] }) {
   const [paused, setPaused] = useState(false);
   const n = slides.length;
 
-  const to = useCallback((k: number) => setI(((k % n) + n) % n), [n]);
   const next = useCallback(() => setI((p) => (p + 1) % n), [n]);
   const prev = useCallback(() => setI((p) => (p - 1 + n) % n), [n]);
 
@@ -39,6 +39,7 @@ export default function Carousel({ slides }: { slides: Slide[] }) {
                 src={s.src}
                 alt={s.title}
                 loading={k === 0 ? "eager" : "lazy"}
+                style={{ objectPosition: s.focus ?? "center center" }}
               />
               <figcaption className="carousel__caption">
                 <span className="carousel__index">{pad(k + 1)}</span>
@@ -62,19 +63,6 @@ export default function Carousel({ slides }: { slides: Slide[] }) {
         <button className="carousel__arrow carousel__arrow--next" onClick={next} aria-label="Suivant">
           ›
         </button>
-      </div>
-
-      <div className="carousel__thumbs">
-        {slides.map((s, k) => (
-          <button
-            key={s.src + k}
-            className={`carousel__thumb ${k === i ? "is-active" : ""}`}
-            onClick={() => to(k)}
-            aria-label={`Voir : ${s.title}`}
-          >
-            <img src={s.src} alt={s.title} loading="lazy" />
-          </button>
-        ))}
       </div>
     </div>
   );

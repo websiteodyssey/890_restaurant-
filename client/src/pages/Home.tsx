@@ -29,11 +29,16 @@ const tarifs = PICKS.map((name) => allDishes.find((d) => d.name === name)).filte
 
 // Carrousel : photos (src + nom chinois) ; les titres/descriptions viennent des traductions.
 const SLIDE_META = [
-  { src: "/images/carousel-bar.jpg", cn: "烤鱼" },
-  { src: "/images/signature-poulet.jpg", cn: "招牌干锅鸡" },
-  { src: "/images/table-890.jpg", cn: "八九零" },
-  { src: "/images/interieur.jpg", cn: "八九零" },
-  { src: "/images/salle-retro.jpg", cn: "我们走过的童年" },
+  { src: "/images/carousel-bar.jpg", cn: "烤鱼", focus: "center 55%" },
+  { src: "/images/signature-poulet.jpg", cn: "招牌干锅鸡", focus: "center 58%" },
+  { src: "/images/table-890.jpg", cn: "八九零", focus: "center 48%" },
+  { src: "/images/interieur.jpg", cn: "八九零", focus: "center 42%" },
+  { src: "/images/salle-retro.jpg", cn: "我们走过的童年", focus: "center 45%" },
+  { src: "/images/gal-12.jpg", cn: "酸菜鱼", focus: "center 78%" },
+  { src: "/images/gal-04.jpg", cn: "宫保鸡丁", focus: "center 52%" },
+  { src: "/images/hotpot-poisson.jpg", cn: "水煮鱼", focus: "center 62%" },
+  { src: "/images/wok-flammes.jpg", cn: "火焰炒锅", focus: "center 58%" },
+  { src: "/images/gal-17.jpg", cn: "八九零", focus: "center 58%" },
 ];
 
 const TICKER = [
@@ -54,6 +59,7 @@ export default function Home() {
   const slides: Slide[] = SLIDE_META.map((m, i) => ({
     src: m.src,
     cn: m.cn,
+    focus: m.focus,
     title: t.slides[i].title,
     desc: t.slides[i].desc,
   }));
@@ -261,8 +267,12 @@ export default function Home() {
           <div>
             <p className="section__eyebrow section__eyebrow--gold">{t.home.bandEyebrow}</p>
             <h2 className="cta-band__title">{t.home.bandTitle}</h2>
-            <p>
-              {t.home.bandText} {INFO.phone}.
+            <p className="cta-band__text">
+              {t.home.bandText}{" "}
+              <a className="cta-band__phone" href={INFO.phoneHref}>
+                {INFO.phone}
+              </a>
+              .
             </p>
           </div>
           <div className="cta-band__actions">
