@@ -98,7 +98,7 @@ export default function Navbar() {
               Commander
             </a>
             <a className="btn btn--outline" href={INFO.reserveUrl}>
-              Réserver une table
+              Réserver
             </a>
           </div>
 
