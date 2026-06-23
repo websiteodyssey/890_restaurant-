@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { INFO } from "../data/info";
 
@@ -23,7 +23,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
+  // useLayoutEffect : on referme le menu AVANT le paint de la nouvelle page,
+  // sinon le menu ouvert (avec ses boutons) reste affiché ~1 s le temps de
+  // son fondu de fermeture par-dessus la nouvelle page.
+  useLayoutEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -81,6 +84,7 @@ export default function Navbar() {
                 key={l.to}
                 to={l.to}
                 end={l.end}
+                onClick={() => setOpen(false)}
                 className={({ isActive }) => (isActive ? "is-active" : "")}
               >
                 <span className="navmenu__num">{String(i + 1).padStart(2, "0")}</span>
