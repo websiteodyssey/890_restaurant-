@@ -136,9 +136,8 @@ export default function Home() {
             </Link>
           </div>
           <div className="intro__media intro__media--duo">
-            <img className="intro__duo-back" src="/images/gal-10.jpg" alt="Vermicelles sichuanais à l'huile pimentée" loading="lazy" />
-            <img className="intro__duo-front" src="/images/gal-16.jpg" alt="Plat signature à l'huile pimentée" loading="lazy" />
-            <span className="intro__chinese">我们走过的童年</span>
+            <img className="intro__duo-back" src="/images/gal-17.jpg" alt="Une tablée généreuse au 890" loading="lazy" />
+            <img className="intro__duo-front" src="/images/gal-01.jpg" alt="Poêlée épicée du wok, ciboule et piments" loading="lazy" />
           </div>
         </div>
       </section>
