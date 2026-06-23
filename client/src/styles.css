@@ -1089,7 +1089,7 @@ a { color: inherit; text-decoration: none; }
 .intro__media:hover img, .story__media:hover img { transform: scale(1.05); }
 
 /* Accueil : deux photos portrait qui se chevauchent (style éditorial) */
-.intro__media.intro__media--duo { overflow: visible; padding: 0 7% 24% 0; }
+.intro__media.intro__media--duo { overflow: visible; padding: 0 7% 32% 0; }
 .intro__media--duo .intro__duo-back {
   display: block; width: 72%; aspect-ratio: 3 / 4; max-height: none;
   object-fit: cover; border-radius: 8px; box-shadow: var(--shadow-xl);
