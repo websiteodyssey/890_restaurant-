@@ -136,7 +136,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="intro__media">
-            <img src="/images/ambiance-2.jpg" alt="Fresque rétro du 890 Restaurant" loading="lazy" />
+            <img src="/images/gal-17.jpg" alt="Une tablée généreuse au 890" loading="lazy" />
             <span className="intro__chinese">我们走过的童年</span>
           </div>
         </div>
