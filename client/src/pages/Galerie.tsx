@@ -2,31 +2,34 @@ import { useState } from "react";
 import PageHeader from "../components/PageHeader";
 import { INFO } from "../data/info";
 
-type Shot = { src: string; alt: string; tall?: boolean };
+type Shot = { src: string; alt: string };
 
 const SHOTS: Shot[] = [
-  { src: "/images/sig-boeuf-mala.jpg", alt: "Bœuf bouilli à l'huile pimentée · 水煮牛肉", tall: true },
-  { src: "/images/table-890.jpg", alt: "Une tablée généreuse au 890" },
-  { src: "/images/devanture-nuit.jpg", alt: "La devanture du 890, le soir" },
-  { src: "/images/sig-poisson-choucroute.jpg", alt: "Poisson à la choucroute sichuanaise · 酸菜鱼", tall: true },
-  { src: "/images/salle-retro.jpg", alt: "Salle aux accents rétro 80-90" },
-  { src: "/images/sig-poulet-piments.jpg", alt: "Poulet croustillant aux piments · 辣子鸡", tall: true },
-  { src: "/images/wok-flammes.jpg", alt: "Cuisson au wok sur flammes vives", tall: true },
-  { src: "/images/deco-tasses.jpg", alt: "Tasses émaillées d'époque" },
-  { src: "/images/plat-choucroute.jpg", alt: "Poisson à la choucroute, en bol", tall: true },
-  { src: "/images/signature-poulet.jpg", alt: "Poulet du chef en poêle" },
-  { src: "/images/hotpot-poisson.jpg", alt: "Poisson bouilli à l'huile pimentée" },
-  { src: "/images/wok-huile.jpg", alt: "Huile pimentée versée sur les piments", tall: true },
-  { src: "/images/deco-tasse.jpg", alt: "Détail rétro sur les tables" },
-  { src: "/images/mapo-tofu.jpg", alt: "Mapo tofu" },
-  { src: "/images/fruits-de-mer.jpg", alt: "Couteaux de mer à la sichuanaise", tall: true },
-  { src: "/images/interieur.jpg", alt: "Intérieur chaleureux du 890" },
-  { src: "/images/banniere.jpg", alt: "Devanture du 890 Restaurant" },
+  { src: "/images/gal-01.jpg", alt: "Poêlée épicée du wok, ciboule et piments" },
+  { src: "/images/gal-02.jpg", alt: "Marmite mijotée à la sichuanaise" },
+  { src: "/images/gal-03.jpg", alt: "Brochette grillée, sauce du chef" },
+  { src: "/images/gal-04.jpg", alt: "Poulet croustillant aux cacahuètes · 宫保鸡丁" },
+  { src: "/images/gal-05.jpg", alt: "Nouilles sautées, fraîcheur du jour" },
+  { src: "/images/gal-06.jpg", alt: "Tofu grillé sur plaque chaude" },
+  { src: "/images/gal-07.jpg", alt: "Poisson snacké aux herbes fraîches" },
+  { src: "/images/gal-08.jpg", alt: "Poisson entier à la ciboule" },
+  { src: "/images/gal-09.jpg", alt: "Couteaux de mer à la sichuanaise" },
+  { src: "/images/gal-10.jpg", alt: "Vermicelles sichuanais à l'huile pimentée" },
+  { src: "/images/gal-11.jpg", alt: "Bol fraîcheur, concombre et piment" },
+  { src: "/images/gal-12.jpg", alt: "Poisson à la choucroute · 酸菜鱼" },
+  { src: "/images/gal-13.jpg", alt: "Wok parfumé, dégustation à la baguette" },
+  { src: "/images/gal-14.jpg", alt: "Bol mijoté, bouillon épicé" },
+  { src: "/images/gal-15.jpg", alt: "Marmite de fête, légumes croquants" },
+  { src: "/images/gal-16.jpg", alt: "Plat signature à l'huile pimentée" },
+  { src: "/images/gal-17.jpg", alt: "Une tablée généreuse au 890" },
 ];
 
-const ROW_A = SHOTS.slice(0, 6);
-const ROW_B = SHOTS.slice(6, 12);
-const ROW_C = SHOTS.slice(11);
+// Liste doublée → la translation de -50 % boucle sans couture
+const LOOP = [...SHOTS, ...SHOTS];
+
+// Bloc en superposition (façade éditoriale)
+const SUP_BACK: Shot = { src: "/images/gal-10.jpg", alt: "Vermicelles sichuanais à l'huile pimentée" };
+const SUP_FRONT: Shot = { src: "/images/gal-16.jpg", alt: "Plat signature à l'huile pimentée" };
 
 export default function Galerie() {
   const [active, setActive] = useState<Shot | null>(null);
@@ -41,36 +44,37 @@ export default function Galerie() {
         image="/images/ambiance-2.jpg"
       />
 
-      {/* Carrousel auto-défilant (3 rangées en sens alternés) */}
-      <section className="galmar-section">
-        <div className="section__head section__head--center">
-          <p className="section__eyebrow">Notre univers en images</p>
-          <h2 className="section__title">Le 890 en mouvement</h2>
-          <div className="divider"><span>◆</span></div>
-          <p className="section__intro">
-            Cliquez sur une photo pour l'agrandir.
-          </p>
+      {/* Galerie sur fond sombre : superposition + carrousel auto (style éditorial) */}
+      <section className="galcar-section">
+        <div className="galcar-section__head">
+          <p className="galcar__eyebrow">Notre univers en images</p>
+          <h2 className="galcar__title">Le 890 en images</h2>
+          <div className="galcar__divider"><span>◆</span></div>
+          <p className="galcar__intro">Survolez pour mettre en pause — cliquez sur une photo pour l'agrandir.</p>
         </div>
 
-        <div className="galmarquee">
-          <div className="galmarquee__row">
-            {[...ROW_A, ...ROW_A].map((s, i) => (
-              <button key={`a${i}`} className="galmarquee__item" onClick={() => setActive(s)} aria-label={s.alt}>
-                <img src={s.src} alt={s.alt} loading="lazy" />
-              </button>
-            ))}
-          </div>
-          <div className="galmarquee__row galmarquee__row--rev">
-            {[...ROW_B, ...ROW_B].map((s, i) => (
-              <button key={`b${i}`} className="galmarquee__item" onClick={() => setActive(s)} aria-label={s.alt}>
-                <img src={s.src} alt={s.alt} loading="lazy" />
-              </button>
-            ))}
-          </div>
-          <div className="galmarquee__row">
-            {[...ROW_C, ...ROW_C].map((s, i) => (
-              <button key={`c${i}`} className="galmarquee__item" onClick={() => setActive(s)} aria-label={s.alt}>
-                <img src={s.src} alt={s.alt} loading="lazy" />
+        {/* Bloc en superposition */}
+        <div className="galsup">
+          <button className="galsup__back" onClick={() => setActive(SUP_BACK)} aria-label={SUP_BACK.alt}>
+            <img src={SUP_BACK.src} alt={SUP_BACK.alt} loading="lazy" />
+          </button>
+          <button className="galsup__front" onClick={() => setActive(SUP_FRONT)} aria-label={SUP_FRONT.alt}>
+            <img src={SUP_FRONT.src} alt={SUP_FRONT.alt} loading="lazy" />
+          </button>
+        </div>
+
+        {/* Carrousel à défilement automatique continu (marquee CSS, GPU) */}
+        <div className="galcar">
+          <div className="galcar__track">
+            {LOOP.map((s, k) => (
+              <button
+                key={k}
+                className="galcar__card"
+                onClick={() => setActive(s)}
+                aria-label={s.alt}
+              >
+                <img src={s.src} alt={s.alt} loading={k < 4 ? "eager" : "lazy"} />
+                <span className="galcar__card-cap">{s.alt}</span>
               </button>
             ))}
           </div>
