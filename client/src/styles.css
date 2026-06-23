@@ -613,7 +613,7 @@ a { color: inherit; text-decoration: none; }
 .galcar-section {
   background: radial-gradient(120% 80% at 50% 0%, #1a1517 0%, #0c0b0d 60%, #060507 100%);
   padding: clamp(3rem, 7vw, 6rem) 0 clamp(3rem, 7vw, 5rem);
-  overflow: hidden;
+  overflow: clip;
 }
 .galcar-section__head { text-align: center; padding: 0 1.25rem; max-width: 760px; margin: 0 auto; }
 .galcar__eyebrow {
@@ -636,7 +636,8 @@ a { color: inherit; text-decoration: none; }
 }
 .galsup__back,
 .galsup__front {
-  display: block; padding: 0; border: none; cursor: pointer; overflow: hidden;
+  display: block; padding: 0; border: none; cursor: pointer;
+  overflow: clip; contain: paint; /* clip strict : les anims internes ne fuient pas */
   background: #0c0b0d; border-radius: 6px;
   box-shadow: 0 26px 60px -18px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.05);
   transition: transform 0.5s var(--ease-expo), box-shadow 0.5s var(--ease-expo);
@@ -666,14 +667,17 @@ a { color: inherit; text-decoration: none; }
 .galcar {
   position: relative;
   margin: clamp(1.8rem, 4vw, 2.8rem) 0 0.6rem;
-  overflow: hidden;
+  /* overflow: clip + contain: paint : empêchent toute fuite horizontale du track
+     transformé (très large) dans le scrollWidth du document — c'était la cause de
+     la bande blanche à droite / la page qui « bouge » sur mobile. */
+  overflow: clip;
+  contain: paint;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
 }
 .galcar__track {
   display: flex; width: max-content; padding: 0.6rem 0;
   animation: galScroll var(--gal-dur, 58s) linear infinite;
-  will-change: transform;
 }
 .galcar:hover .galcar__track { animation-play-state: paused; }
 /* -50 % = exactement un jeu (cartes + marge uniformes) → boucle sans couture */
@@ -710,6 +714,12 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 640px) {
   .galcar { --gal-dur: 44s; }
   .galcar__card { width: 64vw; }
+  /* On coupe les anims à translation/scale du bloc superposition sur mobile :
+     elles débordaient en sous-pixel (page qui bouge / bande blanche à droite). */
+  .galsup__back img,
+  .galsup__front,
+  .galsup__front img,
+  .galsup__front::after { animation: none !important; }
 }
 
 /* ===== Galerie — effets superposition ===== */
@@ -1273,6 +1283,7 @@ body {
   .nav { padding: 0.85rem 0; }
   .nav--solid { padding: 0.55rem 0; }
   .nav__cta { display: none; }                 /* « Réserver » est dans l'overlay menu */
+  .nav__menu-label { display: none; }          /* on ne garde que l'icône (≡) sur mobile */
   .nav__brand-logo { width: 38px; height: 38px; }
   .nav__brand-num { font-size: 1.02rem; letter-spacing: 0.12em; }
   .nav__brand-cn { font-size: 0.52rem; letter-spacing: 0.16em; }

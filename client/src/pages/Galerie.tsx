@@ -41,7 +41,7 @@ export default function Galerie() {
         title="En images"
         cn="相册"
         intro="L'ambiance, les saveurs et l'esprit du 890 — entre tradition sichuanaise et décor rétro chinois."
-        image="/images/ambiance-2.jpg"
+        image="/images/gal-17.jpg"
       />
 
       {/* Galerie sur fond sombre : superposition + carrousel auto (style éditorial) */}
