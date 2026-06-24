@@ -13,6 +13,15 @@ export default function Carte() {
   const t = useT();
   const { lang } = useLang();
 
+  // Visionneuse : clic sur la photo d'un plat → image agrandie en plein écran.
+  const [zoom, setZoom] = useState<{ src: string; alt: string } | null>(null);
+  useEffect(() => {
+    if (!zoom) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setZoom(null); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoom]);
+
   // Défilement horizontal fluide des onglets : molette (inertie) + glisser souris.
   useEffect(() => {
     const el = tabsRef.current;
@@ -141,7 +150,13 @@ export default function Carte() {
               {current.dishes.map((d) => (
                 <li className="dish" key={d.name}>
                   {d.image ? (
-                    <img className="dish__thumb" src={d.image} alt={dishName(d, lang)} loading="lazy" />
+                    <img
+                      className="dish__thumb dish__thumb--zoomable"
+                      src={d.image}
+                      alt={dishName(d, lang)}
+                      loading="lazy"
+                      onClick={() => setZoom({ src: d.image!, alt: dishName(d, lang) })}
+                    />
                   ) : (
                     <span className="dish__thumb dish__thumb--placeholder">八九零</span>
                   )}
@@ -180,6 +195,16 @@ export default function Carte() {
           </a>
         </div>
       </section>
+
+      {zoom ? (
+        <div className="lightbox" onClick={() => setZoom(null)} role="dialog" aria-modal="true">
+          <button className="lightbox__close" aria-label="Fermer" onClick={() => setZoom(null)}>×</button>
+          <figure className="lightbox__figure" onClick={(e) => e.stopPropagation()}>
+            <img className="lightbox__img" src={zoom.src} alt={zoom.alt} />
+            <figcaption className="lightbox__caption">{zoom.alt}</figcaption>
+          </figure>
+        </div>
+      ) : null}
     </>
   );
 }

@@ -29,15 +29,16 @@ const tarifs = PICKS.map((name) => allDishes.find((d) => d.name === name)).filte
 
 // Carrousel : photos (src + nom chinois) ; les titres/descriptions viennent des traductions.
 const SLIDE_META = [
-  { src: "/images/carousel-bar.jpg", cn: "烤鱼", focus: "center 55%" },
-  { src: "/images/signature-poulet.jpg", cn: "招牌干锅鸡", focus: "center 58%" },
+  { src: "/images/carousel-bar.jpg", cn: "重庆烤鲈鱼", focus: "center 55%" },
+  { src: "/images/signature-poulet.jpg", cn: "芋儿肥肠鸡", focus: "center 58%" },
   { src: "/images/interieur.jpg", cn: "八九零", focus: "center 42%" },
   { src: "/images/salle-retro.jpg", cn: "我们走过的童年", focus: "center 45%" },
   { src: "/images/gal-12.jpg", cn: "酸菜鱼", focus: "center 78%" },
   { src: "/images/gal-04.jpg", cn: "宫保鸡丁", focus: "center 52%" },
-  { src: "/images/hotpot-poisson.jpg", cn: "水煮鱼", focus: "center 62%" },
-  { src: "/images/wok-flammes.jpg", cn: "火焰炒锅", focus: "center 58%" },
+  { src: "/images/mala-xiangguo.jpg", cn: "麻辣香锅", focus: "center 55%" },
+  { src: "/images/tieban-niurou.jpg", cn: "铁板牛肉", focus: "center 78%" },
   { src: "/images/gal-17.jpg", cn: "八九零", focus: "center 58%" },
+  { src: "/images/deco-piments-ail.jpg", cn: "辣椒与蒜", focus: "center 45%" },
 ];
 
 const TICKER = [
