@@ -11,6 +11,14 @@ export function Spice({ level }: { level?: 0 | 1 | 2 | 3 }) {
   );
 }
 
+export function Pick() {
+  return (
+    <span className="pick" title="Recommandé par la maison" aria-label="Recommandé par la maison">
+      👍
+    </span>
+  );
+}
+
 export function Veg() {
   return (
     <span className="veg" title="Végétarien" aria-label="Végétarien">

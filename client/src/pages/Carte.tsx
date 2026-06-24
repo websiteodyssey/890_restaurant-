@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import PageHeader from "../components/PageHeader";
 import { MENU } from "../data/menu";
 import { INFO } from "../data/info";
-import { Spice, Veg } from "../components/MenuMarks";
+import { Spice, Veg, Pick } from "../components/MenuMarks";
 import { useT, useLang } from "../i18n/lang";
 import { dishName, dishCn, catTitle, catNote } from "../i18n/menu";
 
@@ -129,6 +129,7 @@ export default function Carte() {
                     {dishCn(d, lang) ? <em className="simple-row__cn">{dishCn(d, lang)}</em> : null}
                     {d.veg ? <Veg /> : null}
                     <Spice level={d.spice} />
+                    {d.pick ? <Pick /> : null}
                   </span>
                   <span className="simple-row__dots" />
                   <span className="simple-row__price">{d.price}</span>
@@ -151,6 +152,7 @@ export default function Carte() {
                         {dishCn(d, lang) ? <span className="dish__cn">{dishCn(d, lang)}</span> : null}
                         {d.veg ? <Veg /> : null}
                         <Spice level={d.spice} />
+                        {d.pick ? <Pick /> : null}
                       </h3>
                       <span className="dish__dots" />
                       <span className="dish__price">{d.price}</span>
