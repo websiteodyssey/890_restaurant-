@@ -20,8 +20,8 @@ export default function Footer() {
           <Link to="/histoire">{t.nav.histoire}</Link>
           <Link to="/carte">{t.nav.carte}</Link>
           <Link to="/galerie">{t.nav.galerie}</Link>
-          <a href={INFO.reserveUrl}>{t.footer.reserve}</a>
-          <a href={INFO.orderUrl}>{t.footer.order}</a>
+          <a href={INFO.reserveUrl} target="_blank" rel="noreferrer">{t.footer.reserve}</a>
+          <a href={INFO.orderUrl} target="_blank" rel="noreferrer">{t.footer.order}</a>
         </div>
 
         <div className="footer__col">

@@ -102,10 +102,10 @@ export default function Navbar() {
                 </ul>
               ) : null}
             </div>
-            <a className="nav__cta nav__cta--order" href={INFO.orderUrl}>
+            <a className="nav__cta nav__cta--order" href={INFO.orderUrl} target="_blank" rel="noreferrer">
               {t.cta.order}
             </a>
-            <a className="nav__cta" href={INFO.reserveUrl}>
+            <a className="nav__cta" href={INFO.reserveUrl} target="_blank" rel="noreferrer">
               {t.cta.reserve}
             </a>
             <button
@@ -144,10 +144,10 @@ export default function Navbar() {
           </nav>
 
           <div className="navmenu__cta">
-            <a className="btn btn--gold btn--shine" href={INFO.orderUrl}>
+            <a className="btn btn--gold btn--shine" href={INFO.orderUrl} target="_blank" rel="noreferrer">
               {t.cta.order}
             </a>
-            <a className="btn btn--outline" href={INFO.reserveUrl}>
+            <a className="btn btn--outline" href={INFO.reserveUrl} target="_blank" rel="noreferrer">
               {t.cta.reserve}
             </a>
           </div>

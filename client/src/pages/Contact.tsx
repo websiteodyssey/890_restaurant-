@@ -92,7 +92,7 @@ export default function Contact() {
             </ul>
 
             <div className="contact2__actions">
-              <a className="btn btn--gold btn--shine" href={INFO.reserveUrl}>
+              <a className="btn btn--gold btn--shine" href={INFO.reserveUrl} target="_blank" rel="noreferrer">
                 {t.cta.reserveTable}
               </a>
               <a className="btn btn--outline" href={INFO.mapsUrl} target="_blank" rel="noreferrer">

@@ -17,9 +17,8 @@ export const INFO = {
   ubereats: "https://www.ubereats.com/fr/search?q=890%20restaurant",
   deliveroo: "https://deliveroo.fr/fr/search?q=890%20restaurant",
   booking: "https://booking.890.laurancevisual.com/",
-  // TODO: remplacer "#" par les vrais liens quand ils seront dispo
-  orderUrl: "#", // lien de commande en ligne
-  reserveUrl: "#", // lien de réservation (page externe)
+  orderUrl: "https://order.ody.app/8fef1d7b-ad9a-4202-9a56-4d9f36ab81c3", // lien de commande en ligne
+  reserveUrl: "https://reservation.ody.app/8fef1d7b-ad9a-4202-9a56-4d9f36ab81c3", // lien de réservation (page externe)
   logo: "/images/logo-890.png",
   hours: [
     { day: "Lundi", value: "12h00 – 14h30 · 18h30 – 22h30" },

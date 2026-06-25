@@ -35,7 +35,7 @@ const SLIDE_META = [
   { src: "/images/salle-retro.jpg", cn: "我们走过的童年", focus: "center 45%" },
   { src: "/images/gal-12.jpg", cn: "酸菜鱼", focus: "center 78%" },
   { src: "/images/gal-04.jpg", cn: "宫保鸡丁", focus: "center 52%" },
-  { src: "/images/mala-xiangguo.jpg", cn: "麻辣香锅", focus: "center 55%" },
+  { src: "/images/mala-xiangguo.jpg", cn: "干锅鱿鱼", focus: "center 55%" },
   { src: "/images/tieban-niurou.jpg", cn: "铁板牛肉", focus: "center 78%" },
   { src: "/images/gal-17.jpg", cn: "八九零", focus: "center 58%" },
   { src: "/images/deco-piments-ail.jpg", cn: "辣椒与蒜", focus: "center 45%" },
@@ -89,10 +89,10 @@ export default function Home() {
             {t.hero.sub}
           </p>
           <div className="hero__actions hero__anim" style={{ ["--d" as string]: "0.9s" }}>
-            <a className="btn btn--gold btn--shine" href={INFO.orderUrl}>
+            <a className="btn btn--gold btn--shine" href={INFO.orderUrl} target="_blank" rel="noreferrer">
               {t.cta.order}
             </a>
-            <a className="btn btn--ghost-light btn--shine" href={INFO.reserveUrl}>
+            <a className="btn btn--ghost-light btn--shine" href={INFO.reserveUrl} target="_blank" rel="noreferrer">
               {t.cta.reserveTable}
             </a>
           </div>
@@ -276,7 +276,7 @@ export default function Home() {
             </p>
           </div>
           <div className="cta-band__actions">
-            <a className="btn btn--gold btn--shine" href={INFO.reserveUrl}>
+            <a className="btn btn--gold btn--shine" href={INFO.reserveUrl} target="_blank" rel="noreferrer">
               {t.home.bookOnline}
             </a>
             <a className="btn btn--ghost-light" href={INFO.phoneHref}>

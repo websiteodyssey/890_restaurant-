@@ -294,8 +294,8 @@ export const MENU: MenuCategory[] = [
     note: "Changyu, pionnier du vin chinois depuis 1892. Vignobles du Helan Mountain (Ningxia), présents dans les restaurants étoilés Michelin et lors de plus de 300 dîners d'État.",
     noteEn: "Changyu, pioneer of Chinese wine since 1892. Helan Mountain vineyards (Ningxia), served in Michelin-starred restaurants and at over 300 state dinners.",
     dishes: [
-      { name: "Helan Mountain Blanc de Noir Cabernet 2023 (75cl)", en: "Helan Mountain Blanc de Noir Cabernet 2023 (75cl)", cn: "白葡萄酒，赤霞珠黑中白，中国宁夏贺兰山酿，2023", price: "38,00 €" },
-      { name: "Helan Mountain Cabernet Sauvignon 2021 (75cl)", en: "Helan Mountain Cabernet Sauvignon 2021 (75cl)", cn: "红葡萄酒，赤霞珠干红，中国宁夏贺兰山酿，2021", price: "38,00 €" },
+      { name: "Helan Mountain Blanc de Noir Cabernet 2023 (75cl)", en: "Helan Mountain Blanc de Noir Cabernet 2023 (75cl)", cn: "白葡萄酒，赤霞珠黑中白，中国宁夏贺兰山酿，2023", price: "38,00 €", image: "/images/menu/vinschinois1.jpg" },
+      { name: "Helan Mountain Cabernet Sauvignon 2021 (75cl)", en: "Helan Mountain Cabernet Sauvignon 2021 (75cl)", cn: "红葡萄酒，赤霞珠干红，中国宁夏贺兰山酿，2021", price: "38,00 €", image: "/images/menu/vinschinois2.jpg" },
     ],
   },
   {

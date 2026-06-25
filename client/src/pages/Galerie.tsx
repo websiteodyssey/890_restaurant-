@@ -83,7 +83,7 @@ export default function Galerie() {
         </div>
 
         <div className="center-cta">
-          <a className="btn btn--gold btn--shine" href={INFO.reserveUrl}>
+          <a className="btn btn--gold btn--shine" href={INFO.reserveUrl} target="_blank" rel="noreferrer">
             {t.cta.reserveTable}
           </a>
         </div>

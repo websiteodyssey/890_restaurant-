@@ -187,10 +187,10 @@ export default function Carte() {
         </p>
 
         <div className="center-cta center-cta--row">
-          <a className="btn btn--gold btn--shine" href={INFO.orderUrl}>
+          <a className="btn btn--gold btn--shine" href={INFO.orderUrl} target="_blank" rel="noreferrer">
             {t.cta.order}
           </a>
-          <a className="btn btn--red" href={INFO.reserveUrl}>
+          <a className="btn btn--red" href={INFO.reserveUrl} target="_blank" rel="noreferrer">
             {t.cta.reserveTable}
           </a>
         </div>

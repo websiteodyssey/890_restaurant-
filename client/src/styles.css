@@ -489,11 +489,6 @@ a { color: inherit; text-decoration: none; }
 .sig2__media { aspect-ratio: 2 / 3; background: #080404; overflow: hidden; }
 .sig2__media img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.9s var(--ease-expo); }
 .sig2:hover .sig2__media img { transform: scale(1.06); }
-/* laziji.png = photo produit (assiette dans une large bande noire) : on zoome pour
-   que le plat remplisse le cadre comme les deux clichés voisins (sélecteur en $= pour
-   matcher aussi le chemin avec base path en prod). */
-.sig2__media img[src$="/images/laziji.png"] { transform: scale(1.7); transform-origin: center 38%; }
-.sig2:hover .sig2__media img[src$="/images/laziji.png"] { transform: scale(1.8); }
 .sig2__body { padding: 1.6rem 1.4rem 1.8rem; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.15); display: flex; flex-direction: column; align-items: center; }
 .sig2__cn { font-family: var(--font-cn); color: var(--color-gold); font-size: 0.82rem; letter-spacing: 0.18em; }
 .sig2__name { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; color: var(--color-cream); margin: 0.4rem 0 0; line-height: 1.2; }
