@@ -5,6 +5,7 @@ import Histoire from "./pages/Histoire";
 import Carte from "./pages/Carte";
 import Galerie from "./pages/Galerie";
 import Contact from "./pages/Contact";
+import MentionsLegales from "./pages/MentionsLegales";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/carte" element={<Carte />} />
         <Route path="/galerie" element={<Galerie />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

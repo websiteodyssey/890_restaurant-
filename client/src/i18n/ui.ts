@@ -42,8 +42,14 @@ type Strings = {
   };
   carte: { title: string; cn: string; intro: string; spiceLegend: string; vegLegend: string };
   slides: { title: string; desc: string }[];
-  footer: { restaurant: string; contact: string; delivery: string; plan: string; reserve: string; order: string; copyright: string; hoursLine: string };
+  footer: { restaurant: string; contact: string; delivery: string; plan: string; reserve: string; order: string; copyright: string; hoursLine: string; legal: string; poweredBy: string };
   notFound: { title: string; intro: string; back: string };
+  legal: {
+    eyebrow: string; title: string; cn: string; intro: string; updated: string;
+    editorTitle: string;
+    lblCompany: string; lblForm: string; lblCapital: string; lblRcs: string; lblEuid: string; lblDirector: string; lblAddress: string; lblHost: string;
+    sections: { h: string; p: string[] }[];
+  };
 };
 
 export const UI: Record<Lang, Strings> = {
@@ -105,8 +111,24 @@ export const UI: Record<Lang, Strings> = {
       { title: "Une tablée généreuse", desc: "Plats à partager, convivialité et générosité — l'esprit des tables du 890." },
       { title: "Piments et ail", desc: "Les saveurs du Sichuan jusque dans le décor — piments séchés et ail tressé." },
     ],
-    footer: { restaurant: "Le restaurant", contact: "Contact", delivery: "Livraison", plan: "Plan d'accès", reserve: "Réserver", order: "Commander", copyright: "© 2024 890 Restaurant · Cuisine sichuanaise · Paris 11e", hoursLine: "Ouvert tous les jours sauf le jeudi · 12h–14h30 · 18h30–22h30" },
+    footer: { restaurant: "Le restaurant", contact: "Contact", delivery: "Livraison", plan: "Plan d'accès", reserve: "Réserver", order: "Commander", copyright: "© 2024 890 Restaurant · Cuisine sichuanaise · Paris 11e", hoursLine: "Ouvert tous les jours sauf le jeudi · 12h–14h30 · 18h30–22h30", legal: "Mentions légales", poweredBy: "Powered by" },
     notFound: { title: "Page introuvable", intro: "Cette page n'existe pas — mais une bonne table vous attend.", back: "Retour à l'accueil" },
+    legal: {
+      eyebrow: "Informations légales", title: "Mentions légales & confidentialité", cn: "法律声明", intro: "Mentions légales et politique de confidentialité du site 890restaurant.fr.",
+      updated: "Dernière mise à jour : février 2026",
+      editorTitle: "Éditeur du site",
+      lblCompany: "Dénomination sociale", lblForm: "Forme juridique", lblCapital: "Capital social", lblRcs: "RCS", lblEuid: "N° EUID", lblDirector: "Directeur de la publication", lblAddress: "Siège social", lblHost: "Hébergement",
+      sections: [
+        { h: "Hébergement", p: ["Le site est conçu et hébergé par Ody. Les fonctionnalités de réservation et de commande en ligne sont fournies via la plateforme Ody (ody.app)."] },
+        { h: "Propriété intellectuelle", p: ["L'ensemble des contenus du site — textes, photographies, logo et identité visuelle — est la propriété du restaurant 890 / LEXUAN, sauf mention contraire. Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation préalable est interdite."] },
+        { h: "Données collectées", p: ["Le site collecte des données personnelles uniquement lorsque vous les transmettez volontairement : lors d'une réservation de table ou d'une commande en ligne (nom, numéro de téléphone, e-mail, nombre de couverts, date et heure souhaitées) ou lorsque vous nous contactez. Aucune création de compte n'est nécessaire pour consulter le site."] },
+        { h: "Finalités du traitement", p: ["Vos données sont utilisées pour gérer vos réservations et commandes, vous recontacter si nécessaire et améliorer notre service. Elles ne font l'objet d'aucune vente ni cession à des tiers à des fins commerciales."] },
+        { h: "Réservation, commande et livraison", p: ["Les réservations et commandes en ligne sont traitées via la plateforme Ody. Les livraisons à domicile peuvent être assurées par nos partenaires Uber Eats et Deliveroo, qui disposent de leurs propres politiques de confidentialité."] },
+        { h: "Durée de conservation", p: ["Vos données sont conservées le temps nécessaire au traitement de votre demande, puis archivées ou supprimées conformément aux obligations légales applicables, notamment comptables."] },
+        { h: "Vos droits", p: ["Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données. Pour exercer ces droits, contactez-nous à l'adresse du restaurant ou par téléphone. Vous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr)."] },
+        { h: "Cookies", p: ["Le site utilise uniquement les cookies strictement nécessaires à son bon fonctionnement et à la mémorisation de votre choix de langue. Aucun cookie publicitaire ou de traçage tiers n'est déposé sans votre consentement."] },
+      ],
+    },
   },
 
   en: {
@@ -167,8 +189,24 @@ export const UI: Record<Lang, Strings> = {
       { title: "A generous feast", desc: "Dishes to share, warmth and generosity — the spirit of dining at 890." },
       { title: "Chillies and garlic", desc: "Sichuan flavours down to the decor — dried chillies and braided garlic." },
     ],
-    footer: { restaurant: "The restaurant", contact: "Contact", delivery: "Delivery", plan: "Directions", reserve: "Book", order: "Order", copyright: "© 2024 890 Restaurant · Sichuan cuisine · Paris 11", hoursLine: "Open every day except Thursday · 12pm–2:30pm · 6:30pm–10:30pm" },
+    footer: { restaurant: "The restaurant", contact: "Contact", delivery: "Delivery", plan: "Directions", reserve: "Book", order: "Order", copyright: "© 2024 890 Restaurant · Sichuan cuisine · Paris 11", hoursLine: "Open every day except Thursday · 12pm–2:30pm · 6:30pm–10:30pm", legal: "Legal notice", poweredBy: "Powered by" },
     notFound: { title: "Page not found", intro: "This page doesn't exist — but a great table awaits you.", back: "Back to home" },
+    legal: {
+      eyebrow: "Legal information", title: "Legal notice & privacy", cn: "法律声明", intro: "Legal notice and privacy policy for the 890restaurant.fr website.",
+      updated: "Last updated: February 2026",
+      editorTitle: "Website publisher",
+      lblCompany: "Company name", lblForm: "Legal form", lblCapital: "Share capital", lblRcs: "Trade register", lblEuid: "EUID no.", lblDirector: "Publication director", lblAddress: "Registered office", lblHost: "Hosting",
+      sections: [
+        { h: "Hosting", p: ["The website is designed and hosted by Ody. Online booking and ordering features are provided through the Ody platform (ody.app)."] },
+        { h: "Intellectual property", p: ["All content on this website — text, photographs, logo and visual identity — is the property of 890 restaurant / LEXUAN unless otherwise stated. Any reproduction, representation or distribution, in whole or in part, without prior authorisation is prohibited."] },
+        { h: "Data we collect", p: ["The website collects personal data only when you provide it voluntarily: when booking a table or ordering online (name, phone number, email, number of guests, requested date and time) or when you contact us. No account is required to browse the site."] },
+        { h: "Purpose of processing", p: ["Your data is used to manage your bookings and orders, to contact you if needed and to improve our service. It is never sold or transferred to third parties for commercial purposes."] },
+        { h: "Booking, ordering and delivery", p: ["Online bookings and orders are processed through the Ody platform. Home deliveries may be handled by our partners Uber Eats and Deliveroo, which have their own privacy policies."] },
+        { h: "Data retention", p: ["Your data is kept for as long as necessary to process your request, then archived or deleted in accordance with applicable legal obligations, in particular accounting requirements."] },
+        { h: "Your rights", p: ["In accordance with the General Data Protection Regulation (GDPR) and the French Data Protection Act, you have the right to access, rectify, erase, restrict, object to and port your data. To exercise these rights, contact us at the restaurant's address or by phone. You may also lodge a complaint with the CNIL (www.cnil.fr)."] },
+        { h: "Cookies", p: ["The website uses only the cookies strictly necessary for its operation and to remember your language choice. No advertising or third-party tracking cookies are placed without your consent."] },
+      ],
+    },
   },
 
   zh: {
@@ -229,7 +267,23 @@ export const UI: Record<Lang, Strings> = {
       { title: "丰盛的餐桌", desc: "适合分享的菜品，热闹而慷慨 —— 890 的餐桌精神。" },
       { title: "辣椒与蒜", desc: "川味融入装饰 —— 红辣椒与蒜辫。" },
     ],
-    footer: { restaurant: "餐厅", contact: "联系", delivery: "外送", plan: "到达方式", reserve: "订位", order: "点餐", copyright: "© 2024 890 Restaurant · 川菜 · 巴黎十一区", hoursLine: "每天营业，周四除外 · 12:00–14:30 · 18:30–22:30" },
+    footer: { restaurant: "餐厅", contact: "联系", delivery: "外送", plan: "到达方式", reserve: "订位", order: "点餐", copyright: "© 2024 890 Restaurant · 川菜 · 巴黎十一区", hoursLine: "每天营业，周四除外 · 12:00–14:30 · 18:30–22:30", legal: "法律声明", poweredBy: "Powered by" },
     notFound: { title: "页面未找到", intro: "此页面不存在 —— 但一桌好菜正等着您。", back: "返回首页" },
+    legal: {
+      eyebrow: "法律信息", title: "法律声明与隐私政策", cn: "法律声明", intro: "890restaurant.fr 网站的法律声明与隐私政策。",
+      updated: "最后更新：2026 年 2 月",
+      editorTitle: "网站发布方",
+      lblCompany: "公司名称", lblForm: "法律形式", lblCapital: "注册资本", lblRcs: "商业登记号", lblEuid: "欧盟唯一识别号", lblDirector: "出版负责人", lblAddress: "注册地址", lblHost: "网站托管",
+      sections: [
+        { h: "网站托管", p: ["本网站由 Ody 设计并托管。在线预订与点餐功能通过 Ody 平台（ody.app）提供。"] },
+        { h: "知识产权", p: ["除另有说明外，本网站的所有内容（文字、照片、标志及视觉识别）均归 890 餐厅 / LEXUAN 所有。未经事先授权，禁止以任何形式全部或部分复制、表现或传播。"] },
+        { h: "收集的数据", p: ["本网站仅在您主动提供信息时收集个人数据：预订餐位或在线点餐时（姓名、电话号码、电子邮箱、用餐人数、期望的日期与时间），或当您与我们联系时。浏览网站无需注册账户。"] },
+        { h: "处理目的", p: ["您的数据用于管理预订与订单、在必要时与您联系以及改进我们的服务。我们绝不会为商业目的出售或转让给第三方。"] },
+        { h: "预订、点餐与外送", p: ["在线预订与订单通过 Ody 平台处理。送餐上门可能由我们的合作伙伴 Uber Eats 与 Deliveroo 提供，他们拥有各自的隐私政策。"] },
+        { h: "数据保留期限", p: ["您的数据将在处理您的请求所需的期间内保留，随后按照适用的法律义务（尤其是会计要求）归档或删除。"] },
+        { h: "您的权利", p: ["根据《通用数据保护条例》（GDPR）及法国《信息与自由法》，您享有访问、更正、删除、限制、反对及携带数据的权利。如需行使这些权利，请通过餐厅地址或电话与我们联系。您也可向法国国家信息与自由委员会（CNIL，www.cnil.fr）提出投诉。"] },
+        { h: "Cookie", p: ["本网站仅使用为其正常运行及记住您语言选择所必需的 Cookie。未经您同意，不会放置任何广告或第三方追踪 Cookie。"] },
+      ],
+    },
   },
 };

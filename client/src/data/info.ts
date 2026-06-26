@@ -46,3 +46,17 @@ export const INFO = {
 };
 
 export const COPYRIGHT = "© 2024 890 Restaurant · Cuisine sichuanaise · Paris 11e";
+
+// Informations légales de l'éditeur (source : Extrait Kbis LEXUAN — RCS Paris)
+export const LEGAL = {
+  company: "LEXUAN",
+  form: "Société par actions simplifiée (SAS)",
+  capital: "5 000 €",
+  rcs: "889 963 237 R.C.S. Paris",
+  siren: "889 963 237",
+  euid: "FR7501.889963237",
+  director: "Guo Bin",
+  address: "40 rue Alexandre Dumas, 75011 Paris",
+  host: "Ody",
+  updated: "2026-02",
+};
