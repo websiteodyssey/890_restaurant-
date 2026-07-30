@@ -54,8 +54,7 @@ export default function Footer() {
         <span className="footer__bottom-links">
           <Link to="/mentions-legales">{t.footer.legal}</Link>
           <span className="footer__powered">
-            {t.footer.poweredBy}{" "}
-            <a href="https://ody.app" target="_blank" rel="noreferrer">ody</a>
+            <a href="https://pro.ody.app/" target="_blank" rel="noreferrer">{t.footer.poweredBy} ODY</a>
           </span>
         </span>
         <span>{t.footer.hoursLine}</span>

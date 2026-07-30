@@ -57,6 +57,16 @@ export default function MentionsLegales() {
               ))}
             </article>
           ))}
+
+          <article className="legal__section">
+            <h2>Conception</h2>
+            <p>
+              Conception et développement du site : ODY –{" "}
+              <a href="https://pro.ody.app/" target="_blank" rel="noopener">
+                https://pro.ody.app/
+              </a>
+            </p>
+          </article>
         </div>
       </section>
     </>
