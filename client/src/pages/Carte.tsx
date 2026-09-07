@@ -5,6 +5,7 @@ import { INFO } from "../data/info";
 import { Spice, Veg, Pick } from "../components/MenuMarks";
 import { useT, useLang } from "../i18n/lang";
 import { dishName, dishCn, catTitle, catNote } from "../i18n/menu";
+import { zoomSrc } from "../data/zoom";
 
 export default function Carte() {
   const [active, setActive] = useState(MENU[0].id);
@@ -155,7 +156,7 @@ export default function Carte() {
                       src={d.image}
                       alt={dishName(d, lang)}
                       loading="lazy"
-                      onClick={() => setZoom({ src: d.image!, alt: dishName(d, lang) })}
+                      onClick={() => setZoom({ src: zoomSrc(d.image!), alt: dishName(d, lang) })}
                     />
                   ) : (
                     <span className="dish__thumb dish__thumb--placeholder">八九零</span>
@@ -200,7 +201,20 @@ export default function Carte() {
         <div className="lightbox" onClick={() => setZoom(null)} role="dialog" aria-modal="true">
           <button className="lightbox__close" aria-label="Fermer" onClick={() => setZoom(null)}>×</button>
           <figure className="lightbox__figure" onClick={(e) => e.stopPropagation()}>
-            <img className="lightbox__img" src={zoom.src} alt={zoom.alt} />
+            <img
+              className="lightbox__img"
+              src={zoom.src}
+              alt={zoom.alt}
+              onLoad={(e) => {
+                const img = e.currentTarget;
+                if (img.naturalWidth && img.naturalHeight) {
+                  img.style.setProperty("--ratio", String(img.naturalWidth / img.naturalHeight));
+                  // Les images agrandies (dossier zoom/, x4) sont affichées au plus à 3x la vignette
+                  // d'origine : au-delà, le rendu devient lisse et peu appétissant.
+                  img.style.maxHeight = img.src.includes("/zoom/") ? `${Math.round(img.naturalHeight * 0.75)}px` : "";
+                }
+              }}
+            />
             <figcaption className="lightbox__caption">{zoom.alt}</figcaption>
           </figure>
         </div>
